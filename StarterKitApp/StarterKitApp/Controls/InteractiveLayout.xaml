@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:markdown="clr-namespace:Xam.Forms.Markdown;assembly=Xam.Forms.MarkdownView"
+             x:Class="StarterKitApp.Controls.InteractiveLayout">
+  <ContentView.Resources>
+      <ControlTemplate x:Key="InteractiveTemplate">
+          <Frame CornerRadius="4"
+                 BackgroundColor="Transparent"
+                 BorderColor="{StaticResource PrimaryColor}">
+                      <ContentPresenter Padding="5"
+                                        Content="{TemplateBinding Content}"
+                                        BindingContext="{TemplateBinding BindingContext}"/>
+          </Frame>
+      </ControlTemplate>
+    </ContentView.Resources>
+</ContentView>

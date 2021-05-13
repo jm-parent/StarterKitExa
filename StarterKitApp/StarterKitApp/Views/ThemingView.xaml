@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:StarterKitApp.ViewModels;assembly=StarterKitApp"
+             xmlns:behaviors="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:debugRainbows="clr-namespace:Xamarin.Forms.DebugRainbows;assembly=Xamarin.Forms.DebugRainbows"
+             xmlns:controls="clr-namespace:StarterKitApp.Controls;assembly=StarterKitApp"
+             xmlns:markdown="clr-namespace:Xam.Forms.Markdown;assembly=Xam.Forms.MarkdownView"
+             x:Class="StarterKitApp.Views.ThemingView"
+             >
+    <ContentPage.BindingContext>
+        <viewModels:ThemingViewModel x:Name="ViewModel" />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <markdown:MarkdownView Markdown="{Binding ThemingMd, Mode=OneWay}"/>
+                <controls:InteractiveSample HeightRequest="400" ControlTemplate="{StaticResource InteractiveSampleTemplate}">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding ThemeLabel,Mode=OneWay}"
+                               VerticalOptions="Center" 
+                               HorizontalOptions="Center" />
+                        <Switch VerticalOptions="Center">
+                            <Switch.Behaviors>
+                                <behaviors:EventToCommandBehavior EventName="Toggled"  Command="{Binding ToggleIsOwnedCommand}"/>
+                            </Switch.Behaviors>
+                        </Switch>
+                    </StackLayout>
+                    <controls:InteractiveSample.XamlCode>
+```xml
+&lt;StackLayout Orientation="Horizontal">
+&lt;Label Text="{Binding ThemeLabel,Mode=OneWay}"
+VerticalOptions="Start"
+HorizontalOptions="Start" />
+&lt;Switch VerticalOptions="Start">
+&lt;Switch.Behaviors>
+&lt;behaviors:EventToCommandBehavior EventName="Toggled"  Command="{Binding ToggleIsOwnedCommand}"/>
+&lt;/Switch.Behaviors>
+&lt;/Switch>
+&lt;/StackLayout>
+```
+                    </controls:InteractiveSample.XamlCode>
+                    <controls:InteractiveSample.CSharpCode>
+```csharp
+private bool isToggled = false;
+public string ThemeLabel { get; set; }
+public Command ToggleIsOwnedCommand => new Command(() =>
+{
+isToggled = !isToggled;
+Application.Current.UserAppTheme = isToggled ? OSAppTheme.Dark : OSAppTheme.Light;
+ThemeLabel = isToggled ? "Dark" : "Light" ;
+});
+```
+                    </controls:InteractiveSample.CSharpCode>
+                </controls:InteractiveSample>
+
+            </StackLayout>
+        </ScrollView>
+      
+    </ContentPage.Content>
+</ContentPage>

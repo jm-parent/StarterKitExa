@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:StarterKitApp.Controls;assembly=StarterKitApp"
+             x:Class="StarterKitApp.Views.PopupsView">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Test de popup"
+                HorizontalOptions="CenterAndExpand" />
+            <controls:InteractiveLayout HeightRequest="150" ControlTemplate="{StaticResource InteractiveTemplate}">
+                <StackLayout>
+                    <Button Visual="Material" Text="Popup Simple" Command="{Binding OpenSimplePopup}"></Button>
+                </StackLayout>
+            </controls:InteractiveLayout>
+
+            <controls:InteractiveLayout HeightRequest="150" ControlTemplate="{StaticResource InteractiveTemplate}">
+                <StackLayout>
+                    <Button Visual="Material" Text="Open Alert" Command="{Binding OpenAlert}"></Button>
+                </StackLayout>
+            </controls:InteractiveLayout>
+
+            <controls:InteractiveLayout HeightRequest="150" ControlTemplate="{StaticResource InteractiveTemplate}">
+                <StackLayout>
+                    <Button Visual="Material" Text="Popup Result" Command="{Binding OpenResultPopup}"></Button>
+                    <Label Text="{Binding ResultData}"></Label>
+                </StackLayout>
+            </controls:InteractiveLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

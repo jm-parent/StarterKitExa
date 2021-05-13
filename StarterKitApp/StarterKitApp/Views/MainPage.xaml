@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--If you want to debug ui , use debugRainbows:DebugRainbow.ShowColors="true" in <contentpage>-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:debugRainbows="clr-namespace:Xamarin.Forms.DebugRainbows;assembly=Xamarin.Forms.DebugRainbows"
+             xmlns:markdown="clr-namespace:Xam.Forms.Markdown;assembly=Xam.Forms.MarkdownView"
+             xmlns:base="clr-namespace:StarterKitApp.ViewModels.Base;assembly=StarterKitApp"
+             xmlns:controls="clr-namespace:StarterKitApp.Controls;assembly=StarterKitApp"
+             x:Class="StarterKitApp.Views.MainPage">
+    <ContentPage.BindingContext>
+        <base:StarterBaseViewModel x:Name="ViewModel" />
+    </ContentPage.BindingContext>
+    <ScrollView Padding="8">
+        <StackLayout Padding="8">
+            <markdown:MarkdownView Markdown="{Binding IntroductionMd, Mode=OneWay}">
+            </markdown:MarkdownView>
+            <markdown:MarkdownView Markdown="{Binding WhyWeAreHere, Mode=OneWay}">
+            </markdown:MarkdownView>
+            <controls:InteractiveSample ControlTemplate="{StaticResource InteractiveSampleTemplate}"
+                                        HeightRequest="300">
+                <StackLayout Spacing="8">
+                    <!--Simple property sample-->
+                    <Entry Placeholder="Type here to update the text below"
+                           Text="{Binding Name, Mode=TwoWay}" />
+                    <Label Text="{Binding Name, Mode=OneWay}" />
+                </StackLayout>
+                <controls:InteractiveSample.XamlCode>
+```xml
+&lt;StackLayout Spacing="8">
+&lt;!--Simple property sample-->
+&lt;Entry Placeholder="Type here to update the text below"
+Text="{Binding Name, Mode=TwoWay}" />
+&lt;Label Text="{Binding Name, Mode=OneWay}" />
+&lt;/StackLayout>
+```
+                </controls:InteractiveSample.XamlCode>
+                <controls:InteractiveSample.CSharpCode>
+```csharp
+private string name;
+
+/// &lt;summary>
+/// Gets or sets the name to display.
+/// &lt;/summary>
+public string Name
+{
+get => name;
+set => SetProperty(ref name, value);
+}
+```
+                </controls:InteractiveSample.CSharpCode>
+            </controls:InteractiveSample>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
