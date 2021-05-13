@@ -31,9 +31,9 @@
 
    
     <ShellContent Title="Reddit"
-                  ContentTemplate="{DataTemplate views:RedditView}">
+                  ContentTemplate="{DataTemplate views:RefitSampleView}">
         <ShellContent.Icon>
-            <FontImageSource FontFamily="MaterialIconsFont" Glyph="{x:Static IconsFontHelper:IconsFontHelpers.Reddit}" />
+            <FontImageSource FontFamily="MaterialIconsFont" Glyph="{x:Static IconsFontHelper:IconsFontHelpers.Web}" />
         </ShellContent.Icon>
     </ShellContent>
 

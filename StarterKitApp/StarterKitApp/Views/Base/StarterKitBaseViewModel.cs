@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Ioc;
+using MvvmHelpers;
+using PropertyChanged;
 using StarterKitApp.Helpers;
 using StarterKitApp.Services.Interfaces;
 using Xamarin.CommunityToolkit.ObjectModel;
@@ -12,40 +14,10 @@ using Xamarin.Forms;
 
 namespace StarterKitApp.Views.Base
 {
-    public class MyBaseViewModel : ObservableObject
+    [AddINotifyPropertyChangedInterface]
+    public class StarterKitBaseViewModel : BaseViewModel
     {
     
-        bool isBusy;
-
-        /// <summary>
-        /// Gets or sets a value indicating whether this instance is busy.
-        /// </summary>
-        /// <value><c>true</c> if this instance is busy; otherwise, <c>false</c>.</value>
-        public bool IsBusy
-        {
-            get => isBusy;
-            set
-            {
-                if (SetProperty(ref isBusy, value))
-                    IsNotBusy = !isBusy;
-            }
-        }
-
-        bool isNotBusy = true;
-
-        /// <summary>
-        /// Gets or sets a value indicating whether this instance is not busy.
-        /// </summary>
-        /// <value><c>true</c> if this instance is not busy; otherwise, <c>false</c>.</value>
-        public bool IsNotBusy
-        {
-            get => isNotBusy;
-            set
-            {
-                if (SetProperty(ref isNotBusy, value))
-                    IsBusy = !isNotBusy;
-            }
-        }
         public ICommand NavBackCmd => new SafeCommand().Async(async () =>
         {
             await Shell.Current.GoToAsync("..", true);

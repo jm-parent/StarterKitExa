@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace StarterKitApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class RedditView : ContentPage
+    public partial class RefitSampleView : ContentPage
     {
-        public RedditView()
+        public RefitSampleView()
         {
             InitializeComponent();
             BindingContext = App.Locator.Reddit;

@@ -2,7 +2,7 @@
 
 namespace StarterKitApp.ViewModels
 {
-    public class TutoCreateANewPageViewModel : MyBaseViewModel
+    public class TutoCreateANewPageViewModel : StarterKitBaseViewModel
     {
     }
 }

@@ -4,7 +4,7 @@ using StarterKitApp.Models;
 
 namespace StarterKitApp.Services.Interfaces
 {
-        public interface IRestClient
+        public interface IJsonPlaceholderClient
         {
             [Get("/posts")]
             Task<Foo[]> GetPosts();

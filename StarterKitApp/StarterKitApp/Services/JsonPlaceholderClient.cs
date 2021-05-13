@@ -8,28 +8,28 @@ using StarterKitApp.Services.Interfaces;
 
 namespace StarterKitApp.Services
 {
-    public class RestClient
+    public class JsonPlaceholderClient
     {
-        private readonly IRestClient _restClient;
+        private readonly IJsonPlaceholderClient _jsonPlaceholderClient;
 
-        public RestClient()
+        public JsonPlaceholderClient()
         {
-            _restClient = RestService.For<IRestClient>("https://jsonplaceholder.typicode.com");
+            _jsonPlaceholderClient = RestService.For<IJsonPlaceholderClient>("https://jsonplaceholder.typicode.com");
         }
 
         public async Task<Foo[]> GetPosts()
         {
-            return await _restClient.GetPosts();
+            return await _jsonPlaceholderClient.GetPosts();
         }
 
         public async Task<Foo> GetPost(int id)
         {
-            return await _restClient.GetPost(id);
+            return await _jsonPlaceholderClient.GetPost(id);
         }
 
         public async Task AddPost(Foo foo)
         {
-            await _restClient.AddPost(foo);
+            await _jsonPlaceholderClient.AddPost(foo);
         }
     }
 }

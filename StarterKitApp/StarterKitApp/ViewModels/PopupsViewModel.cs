@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace StarterKitApp.ViewModels
 {
-    public class PopupsViewModel : MyBaseViewModel
+    public class PopupsViewModel : StarterKitBaseViewModel
     {
         public ICommand OpenResultPopup => new SafeCommand().Async(async () =>
         {

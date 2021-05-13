@@ -4,15 +4,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:StarterKitApp.ViewModels;assembly=StarterKitApp"
              xmlns:starterKitApp="clr-namespace:StarterKitApp;assembly=StarterKitApp"
-             x:Class="StarterKitApp.Views.RedditView"
-             x:DataType="viewModels:RedditViewModel"
-             Title="test">
+             x:Class="StarterKitApp.Views.RefitSampleView"
+             x:DataType="viewModels:RefitSampleViewModel"
+             Title="Refit Sample">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Label Text="Titre" VerticalOptions="CenterAndExpand" />
-                <Entry Text="{Binding Title}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-                <Label Text="{Binding Title}" VerticalOptions="CenterAndExpand" />
+                <Label Text="Titre"/>
+                <Button Text="(Get) GetStringPost" Command="{Binding CallApiGetStringPost}"></Button>
+                <Entry Text="{Binding ResultLabel}"></Entry>
+                
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
