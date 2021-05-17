@@ -3,17 +3,20 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:StarterKitApp.ViewModels;assembly=StarterKitApp"
-             xmlns:starterKitApp="clr-namespace:StarterKitApp;assembly=StarterKitApp"
+             xmlns:starterKitApp="clr-namespace:StarterKitApp;assembly=StarterKitApp" xmlns:controls="clr-namespace:StarterKitApp.Controls"
              x:Class="StarterKitApp.Views.RefitSampleView"
              x:DataType="viewModels:RefitSampleViewModel"
              Title="Refit Sample">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
-                <Label Text="Titre"/>
-                <Button Text="(Get) GetStringPost" Command="{Binding CallApiGetStringPost}"></Button>
-                <Entry Text="{Binding ResultLabel}"></Entry>
-                
+        <ScrollView Padding="8">
+            <StackLayout Padding="8">
+                <controls:InteractiveSample ControlTemplate="{StaticResource InteractiveSampleTemplate}"
+                                        HeightRequest="300">
+                    <StackLayout Spacing="8">
+                        <Button Text="(Get) GetStringPost" Command="{Binding CallApiGetStringPost}"></Button>
+                        <Entry Text="{Binding ResultLabel}"></Entry>
+                    </StackLayout>
+                </controls:InteractiveSample>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

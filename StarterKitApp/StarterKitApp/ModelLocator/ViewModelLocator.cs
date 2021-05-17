@@ -28,7 +28,7 @@ namespace StarterKitApp.ModelLocator
         /// GetInstanceWithoutCaching
         /// </summary>
 
-        public object Reddit => SimpleIoc.Default.GetInstance<RefitSampleViewModel>();
+        public object Reddit => SimpleIoc.Default.GetInstanceWithoutCaching<RefitSampleViewModel>();
         public object Popups => SimpleIoc.Default.GetInstance<PopupsViewModel>();
         public object TutoCreatePage => SimpleIoc.Default.GetInstance<TutoCreateANewPageViewModel>();
     }

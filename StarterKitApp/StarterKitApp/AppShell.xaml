@@ -51,6 +51,13 @@
         </ShellContent.Icon>
     </ShellContent>
 
+    <ShellContent Title="NukeImagesView"
+                  ContentTemplate="{DataTemplate views:NukeImagesView}">
+        <ShellContent.Icon>
+            <FontImageSource FontFamily="MaterialIconsFont" Glyph="{x:Static IconsFontHelper:IconsFontHelpers.ImageAlbum}" />
+        </ShellContent.Icon>
+    </ShellContent>
+
     <!--Implémentation d'un Footer dans l'appshell-->
     <Shell.FlyoutFooter>
         <StackLayout>
