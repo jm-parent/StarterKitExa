@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StarterKitApp.Views.NukeImagesView">
-    <CollectionView ItemsSource="{Binding}" ItemSizingStrategy="MeasureFirstItem">
+    <CollectionView ItemsSource="{Binding}" ItemSizingStrategy="MeasureFirstItem" Margin="8">
         <CollectionView.ItemTemplate>
             <DataTemplate>
                 <Image Source="{Binding}" HeightRequest="200" />

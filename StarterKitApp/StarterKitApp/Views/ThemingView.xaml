@@ -12,7 +12,7 @@
         <viewModels:ThemingViewModel x:Name="ViewModel" />
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <ScrollView>
+        <ScrollView Padding="8">
             <StackLayout>
                 <markdown:MarkdownView Markdown="{Binding ThemingMd, Mode=OneWay}"/>
                 <controls:InteractiveSample HeightRequest="400" ControlTemplate="{StaticResource InteractiveSampleTemplate}">

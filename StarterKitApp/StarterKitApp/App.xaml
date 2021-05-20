@@ -14,6 +14,12 @@
         <Color x:Key="TextPrimaryColorDark">#FFFFFF</Color>
         <Color x:Key="TextPrimaryColorLight">#323130</Color>
 
+
+        <Color x:Key="Red">#ff0000</Color>
+        <Color x:Key="Green">#00ff00</Color>
+        <Color x:Key="Pink">#ff00ff</Color>
+        <Color x:Key="Blue">#0000ff</Color>
+
         <markdown:DarkMarkdownTheme x:Key="DarkMarkdownTheme" />
         <markdown:LightMarkdownTheme x:Key="LightMarkdownTheme" />
 
@@ -118,15 +124,28 @@
         <Style TargetType="Button"
                ApplyToDerivedTypes="True">
             <Setter Property="BackgroundColor"
-                    Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColorLight}}" />
+                    Value="{AppThemeBinding Dark={StaticResource TextPrimaryColorLight}, Light={StaticResource TextPrimaryColorLight}}" />
             <Setter Property="TextColor"
-                    Value="{AppThemeBinding Dark={StaticResource TextPrimaryColorDark}, Light={StaticResource TextPrimaryColorLight}}" />
-        </Style>
+                    Value="{AppThemeBinding Dark={StaticResource BackgroundColorLight}, Light={StaticResource BackgroundColorLight}}" />
+
+</Style>
         <Style TargetType="converters:TabViewItem">
             <Setter Property="TextColor"
                     Value="{AppThemeBinding Dark={StaticResource TextPrimaryColorDark}, Light={StaticResource TextPrimaryColorLight}}" />
         </Style>
      
+<!--Custom Style-->
+
+        <Style TargetType="Button"
+               x:Key="GlobalButtonStyle">
+            <Setter Property="BackgroundColor"
+                    Value="{AppThemeBinding Dark={StaticResource Green}, Light={StaticResource Blue}}" />
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Dark={StaticResource Red}, Light={StaticResource Pink}}" />
+
+        </Style>
+
+
         <converters:InvertedBoolConverter x:Key="InvertedBoolConverter" />
         <converters:IsNotNullOrEmptyConverter  x:Key="IsNotNullOrEmptyConverter" />
     </Application.Resources>

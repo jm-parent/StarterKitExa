@@ -37,7 +37,7 @@ namespace StarterKitApp.ViewModels
             ThemeLabel = isToggled ? "Dark" : "Light" ;
         });
 
-        public string ThemingMd { get; set; } = $"# Modification dy Theme" +
+        public string ThemingMd { get; set; } = $"# Modification du Theme" +
                                                 $"\n";
 
     }

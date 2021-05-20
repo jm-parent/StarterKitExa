@@ -9,16 +9,11 @@
              x:TypeArguments="popup:GenericResultPopup+Result"
              Color="Transparent"
              >
-        <Frame CornerRadius="8" 
-           HorizontalOptions="CenterAndExpand" 
-           VerticalOptions="FillAndExpand"
-           HasShadow="True"
-           Padding="0">
+ 
         <StackLayout>
             <Label Text="This is a Result Popup"
                    VerticalOptions="CenterAndExpand"
                    HorizontalOptions="CenterAndExpand" />
                 <Button Text="Submit" Visual="Material" Margin="5" Clicked="Button_Clicked"  />
         </StackLayout>
-    </Frame>
 </xct:Popup>
