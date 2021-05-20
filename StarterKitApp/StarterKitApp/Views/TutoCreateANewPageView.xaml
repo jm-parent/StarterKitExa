@@ -4,10 +4,9 @@
              xmlns:markdown="clr-namespace:Xam.Forms.Markdown;assembly=Xam.Forms.MarkdownView"
              x:Class="StarterKitApp.Views.TutoCreateANewPageView">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
-                <markdown:MarkdownView Markdown="{Binding FullTexts, Mode=OneWay}" 
-                                       />
+        <ScrollView Padding="8">
+            <StackLayout Padding="8">
+                <markdown:MarkdownView Markdown="{Binding FullTexts, Mode=OneWay}" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
