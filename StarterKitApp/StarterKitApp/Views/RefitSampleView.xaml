@@ -10,8 +10,22 @@
     <ContentPage.Content>
         <ScrollView Padding="8">
             <StackLayout Padding="8">
-                <controls:InteractiveSample ControlTemplate="{StaticResource InteractiveSampleTemplate}"
+                <controls:InteractiveSample ControlTemplate="{StaticResource InteractiveSampleTemplate}" IsCSharpTabVisible="False" IsXamlTabVisible="False"
                                         HeightRequest="300">
+                    <StackLayout Spacing="8">
+                        <Button Text="(Get) GetStringPost" Command="{Binding CallApiGetStringPost}"></Button>
+                        <Entry Text="{Binding ResultLabel}"></Entry>
+                    </StackLayout>
+                </controls:InteractiveSample>
+                <controls:InteractiveSample ControlTemplate="{StaticResource InteractiveSampleTemplate}" IsCSharpTabVisible="False" IsXamlTabVisible="False"
+                                            HeightRequest="300">
+                    <StackLayout Spacing="8">
+                        <Button Text="(Get) GetStringPost" Command="{Binding CallApiGetStringPost}"></Button>
+                        <Entry Text="{Binding ResultLabel}"></Entry>
+                    </StackLayout>
+                </controls:InteractiveSample>
+                <controls:InteractiveSample ControlTemplate="{StaticResource InteractiveSampleTemplate}" IsCSharpTabVisible="False" IsXamlTabVisible="False"
+                                            HeightRequest="300">
                     <StackLayout Spacing="8">
                         <Button Text="(Get) GetStringPost" Command="{Binding CallApiGetStringPost}"></Button>
                         <Entry Text="{Binding ResultLabel}"></Entry>

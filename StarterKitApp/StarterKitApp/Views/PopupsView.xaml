@@ -1,29 +1,39 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:controls="clr-namespace:StarterKitApp.Controls;assembly=StarterKitApp"
-             x:Class="StarterKitApp.Views.PopupsView">
+<ContentPage
+    x:Class="StarterKitApp.Views.PopupsView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:StarterKitApp.Controls;assembly=StarterKitApp">
     <ContentPage.Content>
         <ScrollView Padding="8">
             <StackLayout>
-                <Label Text="Test de popup"
-                       HorizontalOptions="CenterAndExpand" />
-                <controls:InteractiveLayout HeightRequest="150" ControlTemplate="{StaticResource InteractiveTemplate}">
+                <Label HorizontalOptions="CenterAndExpand" Text="Test de popup" />
+                <controls:InteractiveLayout ControlTemplate="{StaticResource InteractiveTemplate}" HeightRequest="150">
                     <StackLayout>
-                        <Button Visual="Material" Text="Popup Simple" Style="{StaticResource GlobalButtonStyle}" Command="{Binding OpenSimplePopup}" />
+                        <Button
+                            Command="{Binding OpenSimplePopup}"
+                            Style="{StaticResource GlobalButtonStyle}"
+                            Text="Popup Simple"
+                            Visual="Material" />
                     </StackLayout>
                 </controls:InteractiveLayout>
 
-                <controls:InteractiveLayout HeightRequest="150" ControlTemplate="{StaticResource InteractiveTemplate}">
+                <controls:InteractiveLayout ControlTemplate="{StaticResource InteractiveTemplate}" HeightRequest="150">
                     <StackLayout>
-                        <Button Visual="Material" Text="Open Alert" Command="{Binding OpenAlert}" />
+                        <Button
+                            Command="{Binding OpenAlert}"
+                            Text="Open Alert"
+                            Visual="Material" />
                     </StackLayout>
                 </controls:InteractiveLayout>
 
-                <controls:InteractiveLayout HeightRequest="150" ControlTemplate="{StaticResource InteractiveTemplate}">
+                <controls:InteractiveLayout ControlTemplate="{StaticResource InteractiveTemplate}" HeightRequest="150">
                     <StackLayout>
-                        <Button Visual="Material" Text="Popup Result" Command="{Binding OpenResultPopup}" />
+                        <Button
+                            Command="{Binding OpenResultPopup}"
+                            Text="Popup Result"
+                            Visual="Material" />
                         <Label Text="{Binding ResultData}" />
                     </StackLayout>
                 </controls:InteractiveLayout>

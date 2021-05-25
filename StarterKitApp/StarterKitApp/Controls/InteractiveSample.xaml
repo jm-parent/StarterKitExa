@@ -17,13 +17,13 @@
                                           Content="{TemplateBinding Content}"
                                           BindingContext="{TemplateBinding BindingContext}"/>
                     </views:TabViewItem>
-                    <views:TabViewItem Text="Voir XAML">
+                    <views:TabViewItem Text="Voir XAML" IsVisible="{TemplateBinding IsXamlTabVisible}" >
                         <ScrollView>
                             <markdown:MarkdownView Padding="8"
                                              Markdown="{TemplateBinding XamlCode}" />
                         </ScrollView>
                     </views:TabViewItem>
-                    <views:TabViewItem Text="Voir C#">
+                    <views:TabViewItem Text="Voir C#" IsVisible="{TemplateBinding IsCSharpTabVisible}">
                         <ScrollView>
                             <markdown:MarkdownView Padding="8"
                                              Markdown="{TemplateBinding CSharpCode}" />

@@ -1,20 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Shell xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:controls="clr-namespace:StarterKitApp.Controls;assembly=StarterKitApp"
-            xmlns:IconsFontHelper="clr-namespace:StarterKitApp.Ressources.Fonts;assembly=StarterKitApp"
-             xmlns:views="clr-namespace:StarterKitApp.Views"
-             xmlns:sys="clr-namespace:System;assembly=netstandard"
-             x:Class="StarterKitApp.AppShell" BackgroundColor="{AppThemeBinding Dark=Black, Light=White}"
-             FlyoutBackdrop="#88000000">
+<Shell
+    x:Class="StarterKitApp.AppShell"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:IconsFontHelper="clr-namespace:StarterKitApp.Ressources.Fonts;assembly=StarterKitApp"
+    xmlns:controls="clr-namespace:StarterKitApp.Controls;assembly=StarterKitApp"
+    xmlns:sys="clr-namespace:System;assembly=netstandard"
+    xmlns:views="clr-namespace:StarterKitApp.Views"
+    BackgroundColor="{AppThemeBinding Dark=Black,
+                                      Light=White}"
+    FlyoutBackdrop="#88000000">
 
-    <!--Implémentation d'un Header dans une contentview-->
+    <!--  Implémentation d'un Header dans une contentview  -->
     <Shell.FlyoutHeader>
         <controls:FlyoutHeader />
     </Shell.FlyoutHeader>
 
-    <ShellContent Title="Introduction"
-                  ContentTemplate="{DataTemplate views:MainPage}" >
+    <ShellContent Title="Introduction" ContentTemplate="{DataTemplate views:MainPage}">
         <ShellContent.Icon>
             <FontImageSource FontFamily="MaterialIconsFont" Glyph="{x:Static IconsFontHelper:IconsFontHelpers.Home}" />
         </ShellContent.Icon>
@@ -23,50 +25,51 @@
 
     <FlyoutItem Title="Dark/Light Mode">
         <FlyoutItem.Icon>
-            <FontImageSource FontFamily="MaterialIconsFont" Glyph="{x:Static IconsFontHelper:IconsFontHelpers.ThemeLightDark}"/>
+            <FontImageSource FontFamily="MaterialIconsFont" Glyph="{x:Static IconsFontHelper:IconsFontHelpers.ThemeLightDark}" />
         </FlyoutItem.Icon>
-        <ShellContent ContentTemplate="{DataTemplate views:ThemingView}">
-        </ShellContent>
+        <ShellContent ContentTemplate="{DataTemplate views:ThemingView}" />
     </FlyoutItem>
 
-   
-    <ShellContent Title="Reddit"
-                  ContentTemplate="{DataTemplate views:RefitSampleView}">
+
+    <ShellContent Title="Refit" ContentTemplate="{DataTemplate views:RefitSampleView}">
         <ShellContent.Icon>
             <FontImageSource FontFamily="MaterialIconsFont" Glyph="{x:Static IconsFontHelper:IconsFontHelpers.Web}" />
         </ShellContent.Icon>
     </ShellContent>
 
-    <ShellContent Title="Popups"
-                  ContentTemplate="{DataTemplate views:PopupsView}">
+    <ShellContent Title="Popups" ContentTemplate="{DataTemplate views:PopupsView}">
         <ShellContent.Icon>
             <FontImageSource FontFamily="MaterialIconsFont" Glyph="{x:Static IconsFontHelper:IconsFontHelpers.ShapeRectanglePlus}" />
         </ShellContent.Icon>
     </ShellContent>
 
-    <ShellContent Title="Create a new Page"
-                  ContentTemplate="{DataTemplate views:TutoCreateANewPageView}">
+    <ShellContent Title="Create a new Page" ContentTemplate="{DataTemplate views:TutoCreateANewPageView}">
         <ShellContent.Icon>
             <FontImageSource FontFamily="MaterialIconsFont" Glyph="{x:Static IconsFontHelper:IconsFontHelpers.Creation}" />
         </ShellContent.Icon>
     </ShellContent>
 
-    <ShellContent Title="NukeImagesView"
-                  ContentTemplate="{DataTemplate views:NukeImagesView}">
+    <ShellContent Title="NukeImagesView" ContentTemplate="{DataTemplate views:NukeImagesView}">
         <ShellContent.Icon>
             <FontImageSource FontFamily="MaterialIconsFont" Glyph="{x:Static IconsFontHelper:IconsFontHelpers.ImageAlbum}" />
         </ShellContent.Icon>
     </ShellContent>
-
-    <!--Implémentation d'un Footer dans l'appshell-->
+    <ShellContent Title="TaskLoader" ContentTemplate="{DataTemplate views:TaskLoaderSample}">
+        <ShellContent.Icon>
+            <FontImageSource FontFamily="MaterialIconsFont" Glyph="{x:Static IconsFontHelper:IconsFontHelpers.Loading}" />
+        </ShellContent.Icon>
+    </ShellContent>
+    <!--  Implémentation d'un Footer dans l'appshell  -->
     <Shell.FlyoutFooter>
         <StackLayout>
-            <Label Text="StarterKit App"
-                   FontAttributes="Bold"
-                   HorizontalOptions="Center" />
-            <Label Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{0:dd MMMM yyyy}'}"
-                   HorizontalOptions="Center"
-                   Margin="0,0,0,5"/>
+            <Label
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                Text="StarterKit App" />
+            <Label
+                Margin="0,0,0,5"
+                HorizontalOptions="Center"
+                Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{0:dd MMMM yyyy}'}" />
         </StackLayout>
     </Shell.FlyoutFooter>
 </Shell>

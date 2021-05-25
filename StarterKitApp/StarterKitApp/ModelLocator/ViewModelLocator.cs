@@ -16,10 +16,12 @@ namespace StarterKitApp.ModelLocator
             SimpleIoc.Default.Register<RefitSampleViewModel>();
             SimpleIoc.Default.Register<PopupsViewModel>();
             SimpleIoc.Default.Register<TutoCreateANewPageViewModel>();
-
+            SimpleIoc.Default.Register<TaskLoaderViewModel>();
             //Services
             SimpleIoc.Default.Register<ISettingsService, SettingsService>();
             SimpleIoc.Default.Register<IFilesService, FileService>();
+            SimpleIoc.Default.Register<ISampleCalcService,SampleCalcService>();
+
         }
 
         /// <summary>
@@ -31,6 +33,7 @@ namespace StarterKitApp.ModelLocator
         public object Reddit => SimpleIoc.Default.GetInstanceWithoutCaching<RefitSampleViewModel>();
         public object Popups => SimpleIoc.Default.GetInstance<PopupsViewModel>();
         public object TutoCreatePage => SimpleIoc.Default.GetInstance<TutoCreateANewPageViewModel>();
+        public object TaskLoader => SimpleIoc.Default.GetInstance<TaskLoaderViewModel>();
     }
 
 }

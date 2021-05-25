@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:converters="http://xamarin.com/schemas/2020/toolkit"
-             xmlns:markdown="clr-namespace:Xam.Forms.Markdown;assembly=Xam.Forms.MarkdownView"
-             x:Class="StarterKitApp.App">
+<Application
+    x:Class="StarterKitApp.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:converters1="clr-namespace:StarterKitApp.Converters;assembly=StarterKitApp"
+    xmlns:markdown="clr-namespace:Xam.Forms.Markdown;assembly=Xam.Forms.MarkdownView">
     <Application.Resources>
 
         <Color x:Key="PrimaryColor">#3750D1</Color>
@@ -14,6 +16,8 @@
         <Color x:Key="TextPrimaryColorDark">#FFFFFF</Color>
         <Color x:Key="TextPrimaryColorLight">#323130</Color>
 
+        <Color x:Key="GreyBackground">#888888</Color>
+
 
         <Color x:Key="Red">#ff0000</Color>
         <Color x:Key="Green">#00ff00</Color>
@@ -23,76 +27,66 @@
         <markdown:DarkMarkdownTheme x:Key="DarkMarkdownTheme" />
         <markdown:LightMarkdownTheme x:Key="LightMarkdownTheme" />
 
-        <OnPlatform x:Key="ShellForegroundColorLight"
-					x:TypeArguments="Color">
-            <On Platform="Android"
-				Value="{StaticResource TextPrimaryColorDark}" />
-            <On Platform="iOS"
-				Value="{StaticResource TextPrimaryColorLight}" />
+        <converters1:ExceptionToErrorMessageConverter x:Key="ExceptionToErrorMessageConverter" />
+
+
+        <OnPlatform x:Key="ShellForegroundColorLight" x:TypeArguments="Color">
+            <On Platform="Android" Value="{StaticResource TextPrimaryColorDark}" />
+            <On Platform="iOS" Value="{StaticResource TextPrimaryColorLight}" />
         </OnPlatform>
 
-        <Style x:Key="BaseStyle"
-			   TargetType="Element"
-			   ApplyToDerivedTypes="True">
-            <Setter Property="Shell.BackgroundColor"
-					Value="{AppThemeBinding {StaticResource PrimaryColor}}" />
-            <Setter Property="Shell.ForegroundColor"
-					Value="{AppThemeBinding Dark={StaticResource TextPrimaryColorDark}, Light={StaticResource ShellForegroundColorLight}}" />
-            <Setter Property="Shell.TabBarBackgroundColor"
-					Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColorLight}}" />
-            <Setter Property="Shell.NavBarHasShadow"
-					Value="false" />
-            <Setter Property="Shell.UnselectedColor"
-					Value="Gray" />
-            <Setter Property="Shell.TabBarTitleColor"
-					Value="{StaticResource PrimaryColor}" />
+        <Style
+            x:Key="BaseStyle"
+            ApplyToDerivedTypes="True"
+            TargetType="Element">
+            <Setter Property="Shell.BackgroundColor" Value="{AppThemeBinding {StaticResource PrimaryColor}}" />
+            <Setter Property="Shell.ForegroundColor" Value="{AppThemeBinding Dark={StaticResource TextPrimaryColorDark}, Light={StaticResource ShellForegroundColorLight}}" />
+            <Setter Property="Shell.TabBarBackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColorLight}}" />
+            <Setter Property="Shell.NavBarHasShadow" Value="false" />
+            <Setter Property="Shell.UnselectedColor" Value="Gray" />
+            <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource PrimaryColor}" />
         </Style>
 
-        <Style TargetType="TabBar"
-			   ApplyToDerivedTypes="True"
-			   BasedOn="{StaticResource BaseStyle}">
-        </Style>
-       
-        <Style TargetType="FlyoutItem"
-               ApplyToDerivedTypes="True"
-               BasedOn="{StaticResource BaseStyle}">
-        </Style>
+        <Style
+            ApplyToDerivedTypes="True"
+            BasedOn="{StaticResource BaseStyle}"
+            TargetType="TabBar" />
 
-        <Style BasedOn="{StaticResource BaseStyle}"
-			   ApplyToDerivedTypes="True"
-			   TargetType="Tab" />
+        <Style
+            ApplyToDerivedTypes="True"
+            BasedOn="{StaticResource BaseStyle}"
+            TargetType="FlyoutItem" />
 
-        <Style TargetType="Shell"
-			   ApplyToDerivedTypes="True">
-            <Setter Property="FlyoutBackgroundColor"
-					Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource PrimaryColor}}" />
+        <Style
+            ApplyToDerivedTypes="True"
+            BasedOn="{StaticResource BaseStyle}"
+            TargetType="Tab" />
+
+        <Style ApplyToDerivedTypes="True" TargetType="Shell">
+            <Setter Property="FlyoutBackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource PrimaryColor}}" />
         </Style>
 
 
-        <Style TargetType="Label"
-			   Class="FlyoutItemLabelStyle">
-            <Setter Property="TextColor"
-					Value="{StaticResource TextPrimaryColorDark}" />
+        <Style Class="FlyoutItemLabelStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource TextPrimaryColorDark}" />
         </Style>
 
-        <Style TargetType="Layout"
-			   Class="FlyoutItemLayoutStyle"
-			   ApplyToDerivedTypes="True">
-            <Setter Property="BackgroundColor"
-					Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource PrimaryColor}}" />
+        <Style
+            ApplyToDerivedTypes="True"
+            Class="FlyoutItemLayoutStyle"
+            TargetType="Layout">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource PrimaryColor}}" />
             <Setter Property="VisualStateManager.VisualStateGroups">
                 <VisualStateGroupList>
                     <VisualStateGroup x:Name="CommonStates">
                         <VisualState x:Name="Normal">
                             <VisualState.Setters>
-                                <Setter Property="BackgroundColor"
-										Value="{AppThemeBinding Dark={StaticResource FrameBackgroundColorDark}, Light={StaticResource PrimaryColor}}" />
+                                <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource FrameBackgroundColorDark}, Light={StaticResource PrimaryColor}}" />
                             </VisualState.Setters>
                         </VisualState>
                         <VisualState x:Name="Selected">
                             <VisualState.Setters>
-                                <Setter Property="BackgroundColor"
-										Value="{AppThemeBinding Dark={StaticResource PrimaryColor}, Light={StaticResource FrameBackgroundColorDark}}" />
+                                <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource PrimaryColor}, Light={StaticResource FrameBackgroundColorDark}}" />
                             </VisualState.Setters>
                         </VisualState>
                     </VisualStateGroup>
@@ -100,53 +94,42 @@
             </Setter>
         </Style>
         <Style TargetType="markdown:MarkdownView">
-            <Setter Property="Theme"
-                    Value="{AppThemeBinding Dark={StaticResource DarkMarkdownTheme}, Light={StaticResource LightMarkdownTheme}}" />
+            <Setter Property="Theme" Value="{AppThemeBinding Dark={StaticResource DarkMarkdownTheme}, Light={StaticResource LightMarkdownTheme}}" />
         </Style>
-        <Style TargetType="Page"
-			   ApplyToDerivedTypes="True"
-			   BasedOn="{StaticResource BaseStyle}">
-            <Setter Property="BackgroundColor"
-					Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColorLight}}" />
-        </Style>
-
-        <Style TargetType="Label"
-			   ApplyToDerivedTypes="True">
-            <Setter Property="TextColor"
-					Value="{AppThemeBinding Dark={StaticResource TextPrimaryColorDark}, Light={StaticResource TextPrimaryColorLight}}" />
+        <Style
+            ApplyToDerivedTypes="True"
+            BasedOn="{StaticResource BaseStyle}"
+            TargetType="Page">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColorLight}}" />
         </Style>
 
-        <Style TargetType="Frame"
-			   ApplyToDerivedTypes="True">
-            <Setter Property="BackgroundColor"
-                    Value="{AppThemeBinding Dark={StaticResource TextPrimaryColorLight}, Light={StaticResource BackgroundColorLight}}" />
+        <Style ApplyToDerivedTypes="True" TargetType="Label">
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource TextPrimaryColorDark}, Light={StaticResource TextPrimaryColorLight}}" />
         </Style>
-        <Style TargetType="Button"
-               ApplyToDerivedTypes="True">
-            <Setter Property="BackgroundColor"
-                    Value="{AppThemeBinding Dark={StaticResource TextPrimaryColorLight}, Light={StaticResource TextPrimaryColorLight}}" />
-            <Setter Property="TextColor"
-                    Value="{AppThemeBinding Dark={StaticResource BackgroundColorLight}, Light={StaticResource BackgroundColorLight}}" />
 
-</Style>
+        <Style ApplyToDerivedTypes="True" TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource TextPrimaryColorLight}, Light={StaticResource BackgroundColorLight}}" />
+        </Style>
+        <Style ApplyToDerivedTypes="True" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource TextPrimaryColorLight}, Light={StaticResource TextPrimaryColorLight}}" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource BackgroundColorLight}, Light={StaticResource BackgroundColorLight}}" />
+
+        </Style>
         <Style TargetType="converters:TabViewItem">
-            <Setter Property="TextColor"
-                    Value="{AppThemeBinding Dark={StaticResource TextPrimaryColorDark}, Light={StaticResource TextPrimaryColorLight}}" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource TextPrimaryColorDark}, Light={StaticResource TextPrimaryColorLight}}" />
         </Style>
-     
-<!--Custom Style-->
 
-        <Style TargetType="Button"
-               x:Key="GlobalButtonStyle">
-            <Setter Property="BackgroundColor"
-                    Value="{AppThemeBinding Dark={StaticResource Green}, Light={StaticResource Blue}}" />
-            <Setter Property="TextColor"
-                    Value="{AppThemeBinding Dark={StaticResource Red}, Light={StaticResource Pink}}" />
+        <!--  Custom Style  -->
+
+        <Style x:Key="GlobalButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource Green}, Light={StaticResource Blue}}" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource Red}, Light={StaticResource Pink}}" />
 
         </Style>
 
 
         <converters:InvertedBoolConverter x:Key="InvertedBoolConverter" />
-        <converters:IsNotNullOrEmptyConverter  x:Key="IsNotNullOrEmptyConverter" />
+        <converters:IsNotNullOrEmptyConverter x:Key="IsNotNullOrEmptyConverter" />
+
     </Application.Resources>
 </Application>

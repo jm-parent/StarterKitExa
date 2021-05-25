@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="StarterKitApp.Views.TaskLoaderSample"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
+    xmlns:extensions="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:forms="clr-namespace:Sharpnado.Presentation.Forms;assembly=Sharpnado.TaskLoaderView"
+    xmlns:skeleton="clr-namespace:Xamarin.Forms.Skeleton;assembly=Xamarin.Forms.Skeleton">
+    <ContentPage.Content>
+        <Grid Margin="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <customViews:TaskLoaderView TaskLoaderNotifier="{Binding Loader}">
+                <customViews:TaskLoaderView.NotStartedView>
+                    <Button
+                        Padding="10"
+                        BackgroundColor="Red"
+                        Command="{Binding BuyGameCommand}"
+                        HeightRequest="40"
+                        HorizontalOptions="Center"
+                        Text="Test Loader"
+                        VerticalOptions="Start" />
+                </customViews:TaskLoaderView.NotStartedView>
+            </customViews:TaskLoaderView>
+
+            <AbsoluteLayout BackgroundColor="#77002200" IsVisible="{Binding CompositeNotifier.ShowLoader}">
+                <Grid
+                    x:Name="ErrorNotificationView"
+                    AbsoluteLayout.LayoutBounds="0.5, 0.5, 300, 150"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    RowDefinitions="*,*">
+                    <Grid.Behaviors>
+                        <forms:TimedVisibilityBehavior VisibilityInMilliseconds="4000" />
+                    </Grid.Behaviors>
+                    <Frame BackgroundColor="{StaticResource GreyBackground}" CornerRadius="8">
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Text="{Binding LoadingText}"
+                            TextColor="Blue"
+                            VerticalOptions="Center" />
+                    </Frame>
+
+                </Grid>
+            </AbsoluteLayout>
+
+            <forms:Snackbar
+                Margin="15"
+                BackgroundColor="White"
+                IsVisible="{Binding CompositeNotifier.ShowError, Mode=TwoWay}"
+                Text="{Binding CompositeNotifier.LastError, Converter={StaticResource ExceptionToErrorMessageConverter}}"
+                TextColor="OrangeRed"
+                TextHorizontalOptions="Start"
+                VerticalOptions="End" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
